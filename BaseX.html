@@ -1,0 +1,97 @@
+<!-- index.html -->
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<title> 
+		BaseX Calculator 
+	</title> 
+	<style> 
+		body { 
+			font-family: Arial, sans-serif; 
+		} 
+
+		h1 { 
+			text-align: center; 
+		} 
+
+		#converter { 
+			margin: 20px auto; 
+			width: 300px; 
+			text-align: center; 
+		} 
+
+		label { 
+			display: block; 
+			margin: 5px 5px; 
+		} 
+
+		input[type="number"] { 
+			width: 100%; 
+			padding: 5px; 
+			box-sizing: border-box; 
+		} 
+
+		select { 
+			width: 100%; 
+			padding: 5px; 
+			box-sizing: border-box; 
+			margin-bottom: 10px; 
+		} 
+
+		button { 
+			padding: 10px 20px; 
+			background-color: #4caf50; 
+			color: white; 
+			border: none; 
+			cursor: pointer; 
+			margin: 5px 5px; 
+		} 
+
+		#result { 
+			margin-top: 20px; 
+			text-align: center; 
+		} 
+	</style> 
+</head> 
+
+<body> 
+	<h1>BaseX Calculator</h1> 
+	<div id="converter"> 
+		<label>Number:</label> 
+		<input type="number" id="numberInput" /> 
+		<label>From Base:</label> 
+		<input type="number" id="fromBaseInput" /> 
+		<label>To Base:</label> 
+		<input type="number" id="toBaseInput" /> 
+		<button onclick="convert()"> 
+			Convert 
+		</button> 
+	</div> 
+	<div id="result"></div> 
+
+	<script> 
+		function convert() { 
+			let numberInput = 
+				document.getElementById("numberInput").value; 
+			let fromBase = 
+				parseInt(document.getElementById("fromBaseInput").value); 
+			let toBase = 
+				parseInt(document.getElementById("toBaseInput").value); 
+			let result = ""; 
+
+			// Convert the number from the "fromBase" to decimal 
+			let decimalNumber = 
+				parseInt(numberInput, fromBase); 
+
+			// Convert the decimal number to the "toBase" 
+			result = 
+			decimalNumber.toString(toBase); 
+
+			document.getElementById("result").innerHTML = 
+			"Result: " + result; 
+		} 
+	</script> 
+</body> 
+
+</html>
